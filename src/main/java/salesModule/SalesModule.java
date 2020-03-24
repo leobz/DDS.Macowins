@@ -9,6 +9,8 @@ import java.util.stream.Collectors;
 
 import org.joda.time.DateTime;
 import org.joda.time.Days;
+
+import salesModule.common.CreditCard;
 import salesModule.item.ClothingItem;
 import salesModule.sale.CardSale;
 import salesModule.sale.CashSale;

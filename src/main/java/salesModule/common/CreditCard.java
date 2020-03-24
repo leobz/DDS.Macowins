@@ -1,4 +1,4 @@
-package salesModule;
+package salesModule.common;
 
 import static salesModule.common.Commons.currentDate;
 

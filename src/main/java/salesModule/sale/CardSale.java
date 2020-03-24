@@ -3,7 +3,7 @@ package salesModule.sale;
 import java.util.Date;
 import java.util.List;
 
-import salesModule.CreditCard;
+import salesModule.common.CreditCard;
 import salesModule.item.ClothingItem;
 
 public class CardSale extends Sale {
