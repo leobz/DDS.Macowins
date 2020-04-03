@@ -5,8 +5,8 @@ import java.util.List;
 import salesModule.item.ClothingItem;
 
 public abstract class Sale {
-	List<ClothingItem> items;
-	Date date;
+	private List<ClothingItem> items;
+	private Date date;
 
 	public Sale(List<ClothingItem> items, Date date) {
 		this.items = items;
@@ -23,5 +23,9 @@ public abstract class Sale {
 
 	public Date date() {
 		return this.date;
+	}
+
+	public List<ClothingItem> items() {
+		return this.items;
 	}
 }

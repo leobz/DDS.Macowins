@@ -8,7 +8,7 @@ import salesModule.item.ClothingItem;
 
 public class CardSale extends Sale {
 	private static final double COEFFICIENT = 10;
-	int fees;
+	private int fees;
 	CreditCard card;
 
 	public CardSale(List<ClothingItem> items, Date date, CreditCard card, int fees) {
@@ -23,7 +23,7 @@ public class CardSale extends Sale {
 		return price + surcharge;
 	}
 
-	public double itemPricePercentageSum(double COEFFICIENT) {
-		return items.stream().mapToDouble(item -> item.price() * COEFFICIENT).sum();
+	private double itemPricePercentageSum(double COEFFICIENT) {
+		return this.items().stream().mapToDouble(item -> item.price() * COEFFICIENT).sum();
 	}
 }

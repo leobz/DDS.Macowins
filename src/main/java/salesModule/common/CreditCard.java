@@ -5,11 +5,11 @@ import static salesModule.common.Commons.currentDate;
 import java.util.Date;
 
 public class CreditCard {
-	String company;
-	String cardholder;
-	int number;
-	int security_code;
-	Date expiration;
+	private String company;
+	private String cardholder;
+	private int number;
+	private int security_code;
+	private Date expiration;
 	
 	public CreditCard(
 			String company,

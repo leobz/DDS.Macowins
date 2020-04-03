@@ -2,9 +2,9 @@ package salesModule.item;
 
 public class ClothingItem {
 
-	int id;
-	double base_price;
-	ItemStatus status;
+	private int id;
+	private double base_price;
+	private ItemStatus status;
 	
 	public ClothingItem(int id, double base_price, ItemStatus status) {
 		this.id = id;

@@ -19,8 +19,8 @@ import static salesModule.common.Commons.currentDate;;
 
 public class SalesModule {
 	private static SalesModule singleton;
-	List<Sale> sales = new ArrayList<>();
-	List<ClothingItem> clothing_items = new ArrayList<>();
+	private List<Sale> sales = new ArrayList<>();
+	private List<ClothingItem> clothing_items = new ArrayList<>();
 
 	private SalesModule() {
 	}

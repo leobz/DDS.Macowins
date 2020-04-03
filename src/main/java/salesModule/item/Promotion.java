@@ -1,7 +1,7 @@
 package salesModule.item;
 
 public class Promotion extends ItemStatus {
-	double discount;
+	private double discount;
 	
 	public Promotion(double discount) {
 		this.discount = discount;
