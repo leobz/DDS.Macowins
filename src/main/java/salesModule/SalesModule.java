@@ -1,26 +1,21 @@
 package salesModule;
 
 import java.util.List;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.TimeZone;
 import java.util.stream.Collectors;
-
-import org.joda.time.DateTime;
-import org.joda.time.Days;
-
 import salesModule.common.CreditCard;
 import salesModule.item.ClothingItem;
 import salesModule.sale.CardSale;
 import salesModule.sale.CashSale;
 import salesModule.sale.Sale;
-import static salesModule.common.Commons.currentDate;;
+import static salesModule.common.Commons.currentDateAndTime;;
 
 public class SalesModule {
 	private static SalesModule singleton;
-	List<Sale> sales = new ArrayList<>();
-	List<ClothingItem> clothing_items = new ArrayList<>();
+	private List<Sale> sales = new ArrayList<>();
+	private List<ClothingItem> clothingItems = new ArrayList<>();
 
 	private SalesModule() {
 	}
@@ -32,24 +27,21 @@ public class SalesModule {
 		return singleton;
 	}
 
-	public double earningsOfTheDay(Date _wanted_day) {
-		DateTime wanted_day = new DateTime(_wanted_day);
-		List<Sale> day_sales = sales.stream()
-				.filter(sale -> Days.daysBetween(new DateTime(sale.date()), wanted_day).getDays() == 0)
+	public double earningsOfTheDay(LocalDateTime wantedDay) {
+		List<Sale> daySales = sales.stream()
+				.filter(sale -> sale.date().until(wantedDay, ChronoUnit.DAYS) == 0)
 				.collect(Collectors.toList());
 
-		return day_sales.stream().mapToDouble(sale -> sale.value()).sum();
+		return daySales.stream().mapToDouble(sale -> sale.value()).sum();
 	}
 
 	public void cashPayment(List<ClothingItem> items) {
-		Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
-		Date date = calendar.getTime();
-		CashSale cashSale = new CashSale(items, date);
+		CashSale cashSale = new CashSale(items, currentDateAndTime());
 		registerSale(cashSale);
 	}
 
 	public void cardPayment(List<ClothingItem> items, CreditCard card, int fees) {
-		CardSale cardSale = new CardSale(items, currentDate(), card, fees);
+		CardSale cardSale = new CardSale(items, currentDateAndTime(), card, fees);
 		registerSale(cardSale);
 	}
 

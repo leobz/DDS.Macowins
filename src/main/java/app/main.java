@@ -14,7 +14,7 @@ public class main {
 
 	public static void main(String[] args) {
 		// Inicializo Modulo de Compras
-		SalesModule sales_module = SalesModule.getSingletonInstance();
+		SalesModule salesModule = SalesModule.getSingletonInstance();
 
 		// Inicializo Estados de Items
 		Promotion promocion = new Promotion(2);
@@ -33,14 +33,14 @@ public class main {
 		carrito.add(zapatilla);
 
 		// Realizo compra en efectivo del carrito
-		sales_module.cashPayment(carrito);
+		salesModule.cashPayment(carrito);
 
 		// Realizo compra con tarjeta del carrito
-		sales_module.cardPayment(carrito, CreditCard.exampleCard(), 3);
+		salesModule.cardPayment(carrito, CreditCard.exampleCard(), 3);
 
 		// Veo las ganancias del dia
-		double ventas_del_dia = sales_module.earningsOfTheDay(Commons.currentDate());
-		System.out.println(ventas_del_dia);
+		double ventasDelDia = salesModule.earningsOfTheDay(Commons.currentDateAndTime());
+		System.out.println(ventasDelDia);
 	}
 
 }

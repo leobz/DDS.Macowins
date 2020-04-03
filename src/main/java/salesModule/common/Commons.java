@@ -1,14 +1,11 @@
 package salesModule.common;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.TimeZone;
+import java.time.LocalDateTime;
 
 public class Commons {
 
-	public static Date currentDate() {
-		Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
-		return calendar.getTime();
+	public static LocalDateTime currentDateAndTime() {
+		return LocalDateTime.now();
 	}
 
 }
