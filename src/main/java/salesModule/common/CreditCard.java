@@ -8,14 +8,14 @@ public class CreditCard {
 	private String company;
 	private String cardholder;
 	private int number;
-	private int security_code;
+	private int securityCode;
 	private Date expiration;
 	
 	public CreditCard(
 			String company,
 			String cardholder,
 			int number,
-			int security_code,
+			int securityCode,
 			Date expiration) {
 	}
 	

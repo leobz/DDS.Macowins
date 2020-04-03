@@ -20,7 +20,7 @@ import static salesModule.common.Commons.currentDate;;
 public class SalesModule {
 	private static SalesModule singleton;
 	private List<Sale> sales = new ArrayList<>();
-	private List<ClothingItem> clothing_items = new ArrayList<>();
+	private List<ClothingItem> clothingItems = new ArrayList<>();
 
 	private SalesModule() {
 	}
@@ -32,13 +32,13 @@ public class SalesModule {
 		return singleton;
 	}
 
-	public double earningsOfTheDay(Date _wanted_day) {
-		DateTime wanted_day = new DateTime(_wanted_day);
-		List<Sale> day_sales = sales.stream()
-				.filter(sale -> Days.daysBetween(new DateTime(sale.date()), wanted_day).getDays() == 0)
+	public double earningsOfTheDay(Date _wantedDay) {
+		DateTime wantedDay = new DateTime(_wantedDay);
+		List<Sale> daySales = sales.stream()
+				.filter(sale -> Days.daysBetween(new DateTime(sale.date()), wantedDay).getDays() == 0)
 				.collect(Collectors.toList());
 
-		return day_sales.stream().mapToDouble(sale -> sale.value()).sum();
+		return daySales.stream().mapToDouble(sale -> sale.value()).sum();
 	}
 
 	public void cashPayment(List<ClothingItem> items) {

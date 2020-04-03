@@ -3,17 +3,17 @@ package salesModule.item;
 public class ClothingItem {
 
 	private int id;
-	private double base_price;
+	private double basePrice;
 	private ItemStatus status;
 	
-	public ClothingItem(int id, double base_price, ItemStatus status) {
+	public ClothingItem(int id, double basePrice, ItemStatus status) {
 		this.id = id;
-		this.base_price = base_price;
+		this.basePrice = basePrice;
 		this.status = status;
 	}
 	
 	public double price() {
-		return status.price(this.base_price);
+		return status.price(this.basePrice);
 	}
 
 }
