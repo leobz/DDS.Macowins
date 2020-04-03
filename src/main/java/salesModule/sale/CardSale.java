@@ -1,6 +1,6 @@
 package salesModule.sale;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import salesModule.common.CreditCard;
@@ -11,7 +11,7 @@ public class CardSale extends Sale {
 	private int fees;
 	CreditCard card;
 
-	public CardSale(List<ClothingItem> items, Date date, CreditCard card, int fees) {
+	public CardSale(List<ClothingItem> items, LocalDateTime date, CreditCard card, int fees) {
 		super(items, date);
 		this.card = card;
 		this.fees = fees;

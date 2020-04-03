@@ -1,14 +1,14 @@
 package salesModule.sale;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 import salesModule.item.ClothingItem;
 
 public abstract class Sale {
 	private List<ClothingItem> items;
-	private Date date;
+	private LocalDateTime date;
 
-	public Sale(List<ClothingItem> items, Date date) {
+	public Sale(List<ClothingItem> items, LocalDateTime date) {
 		this.items = items;
 		this.date = date;
 	}
@@ -21,7 +21,7 @@ public abstract class Sale {
 		return items.stream().mapToDouble(item -> item.price()).sum();
 	}
 
-	public Date date() {
+	public LocalDateTime date() {
 		return this.date;
 	}
 

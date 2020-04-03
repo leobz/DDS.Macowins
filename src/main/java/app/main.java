@@ -39,7 +39,7 @@ public class main {
 		salesModule.cardPayment(carrito, CreditCard.exampleCard(), 3);
 
 		// Veo las ganancias del dia
-		double ventasDelDia = salesModule.earningsOfTheDay(Commons.currentDate());
+		double ventasDelDia = salesModule.earningsOfTheDay(Commons.currentDateAndTime());
 		System.out.println(ventasDelDia);
 	}
 
