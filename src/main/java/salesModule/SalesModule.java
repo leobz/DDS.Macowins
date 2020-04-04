@@ -5,7 +5,6 @@ import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
-import salesModule.common.CreditCard;
 import salesModule.item.ClothingItem;
 import salesModule.sale.CardSale;
 import salesModule.sale.CashSale;
@@ -40,8 +39,8 @@ public class SalesModule {
 		registerSale(cashSale);
 	}
 
-	public void cardPayment(List<ClothingItem> items, CreditCard card, int fees) {
-		CardSale cardSale = new CardSale(items, currentDateAndTime(), card, fees);
+	public void cardPayment(List<ClothingItem> items, int fees) {
+		CardSale cardSale = new CardSale(items, currentDateAndTime(), fees);
 		registerSale(cardSale);
 	}
 

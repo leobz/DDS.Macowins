@@ -22,21 +22,21 @@ public class main {
 		New nuevo = New.getSingletonInstance();
 
 		// Inicializo Items
-		ClothingItem camisa = new ClothingItem(1, 10, nuevo);
-		ClothingItem pantalon = new ClothingItem(2, 15, promocion);
-		ClothingItem zapatilla = new ClothingItem(3, 20, liquidacion);
+		ClothingItem camisa = new ClothingItem(Type.SHIRT, 10, nuevo);
+		ClothingItem pantalon = new ClothingItem(Type.PANTS, 15, promocion);
+		ClothingItem saco = new ClothingItem(Type.JACKET, 20, liquidacion);
 
 		// Inicializo un carro de compras
 		List<ClothingItem> carrito = new ArrayList<>();
 		carrito.add(camisa);
 		carrito.add(pantalon);
-		carrito.add(zapatilla);
+		carrito.add(saco);
 
 		// Realizo compra en efectivo del carrito
 		salesModule.cashPayment(carrito);
 
 		// Realizo compra con tarjeta del carrito
-		salesModule.cardPayment(carrito, CreditCard.exampleCard(), 3);
+		salesModule.cardPayment(carrito, 3);
 
 		// Veo las ganancias del dia
 		double ventasDelDia = salesModule.earningsOfTheDay(Commons.currentDateAndTime());
