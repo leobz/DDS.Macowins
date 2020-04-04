@@ -2,12 +2,12 @@ package salesModule.item;
 
 public class ClothingItem {
 
-	private int id;
+	private Type type;
 	private double basePrice;
 	private ItemStatus status;
 	
-	public ClothingItem(int id, double basePrice, ItemStatus status) {
-		this.id = id;
+	public ClothingItem(Type type, double basePrice, ItemStatus status) {
+		this.type = type;
 		this.basePrice = basePrice;
 		this.status = status;
 	}
@@ -16,4 +16,7 @@ public class ClothingItem {
 		return status.price(this.basePrice);
 	}
 
+	public Type type() {
+		return type;
+	}
 }
