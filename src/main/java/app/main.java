@@ -36,7 +36,7 @@ public class main {
 		salesModule.cashPayment(carrito);
 
 		// Realizo compra con tarjeta del carrito
-		salesModule.cardPayment(carrito, CreditCard.exampleCard(), 3);
+		salesModule.cardPayment(carrito, 3);
 
 		// Veo las ganancias del dia
 		double ventasDelDia = salesModule.earningsOfTheDay(Commons.currentDateAndTime());
