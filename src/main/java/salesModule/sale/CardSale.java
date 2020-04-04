@@ -13,10 +13,9 @@ public class CardSale extends Sale {
 		this.fees = fees;
 	}
 
-	public double value() {
-		double price = super.value();
-		double surcharge = this.fees * COEFFICIENT + itemPricePercentageSum(0.01);
-		return price + surcharge;
+	@Override
+	public double surcharge() {
+		return this.fees * COEFFICIENT + itemPricePercentageSum(0.01);
 	}
 
 	private double itemPricePercentageSum(double COEFFICIENT) {

@@ -11,4 +11,9 @@ public class CashSale extends Sale {
 		super(items, date);
 	}
 
+	@Override
+	public double surcharge() {
+		return 0;
+	}
+
 }

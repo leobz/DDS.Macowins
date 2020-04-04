@@ -13,12 +13,15 @@ public abstract class Sale {
 		this.date = date;
 	}
 
-	public int itemsQuantity() {
-		return items.size();
+	public double value() {
+		double value = items.stream().mapToDouble(item -> item.price()).sum();
+		return value + this.surcharge();
 	}
 
-	public double value() {
-		return items.stream().mapToDouble(item -> item.price()).sum();
+	public abstract double surcharge();
+
+	public int itemsQuantity() {
+		return items.size();
 	}
 
 	public LocalDateTime date() {
