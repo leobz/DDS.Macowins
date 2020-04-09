@@ -15,5 +15,4 @@ public class CashSale extends Sale {
 	public double surcharge() {
 		return 0;
 	}
-
 }

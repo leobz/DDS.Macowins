@@ -21,4 +21,8 @@ public class CardSale extends Sale {
 	private double itemPricePercentageSum(double COEFFICIENT) {
 		return this.items().stream().mapToDouble(item -> item.price() * COEFFICIENT).sum();
 	}
+
+	public static double coefficient() {
+		return COEFFICIENT;
+	}
 }
