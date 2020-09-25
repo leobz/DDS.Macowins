@@ -15,7 +15,7 @@ Caso de Uso:
 
 
 
-### Consigna:
+### Requerimientos:
 
 
 La conocida empresa de ropa formal para caballeros, Macowins, es capaz de darle soporte a la venta de prendas. Un fragmento de la grabación del analista con el cliente:
