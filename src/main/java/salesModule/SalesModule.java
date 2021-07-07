@@ -14,7 +14,6 @@ import static salesModule.common.Commons.currentDateAndTime;;
 public class SalesModule {
 	private static SalesModule singleton;
 	private List<Sale> sales = new ArrayList<>();
-	private List<ClothingItem> clothingItems = new ArrayList<>();
 
 	private SalesModule() {
 	}
@@ -27,8 +26,7 @@ public class SalesModule {
 	}
 
 	public double earningsOfTheDay(LocalDateTime wantedDay) {
-		List<Sale> daySales = sales.stream()
-				.filter(sale -> sale.date().until(wantedDay, ChronoUnit.DAYS) == 0)
+		List<Sale> daySales = sales.stream().filter(sale -> sale.date().until(wantedDay, ChronoUnit.DAYS) == 0)
 				.collect(Collectors.toList());
 
 		return daySales.stream().mapToDouble(sale -> sale.value()).sum();
@@ -48,4 +46,11 @@ public class SalesModule {
 		this.sales.add(sale);
 	}
 
+	public int quantityOfSales() {
+		return this.sales.size();
+	}
+
+	public void restartSales() {
+		this.sales = new ArrayList<>();
+	}
 }
